@@ -1,0 +1,63 @@
+[
+    {
+        "id": "1e9ed68b-9663-47d2-80cb-6aefbfd2960d",
+        "name": "15fd37e2-9b4b-42ec-b9b6-82bde9e7cbca",
+        "identityProviderAlias": "okta",
+        "identityProviderMapper": "SamlAttributeToGroupMapper",
+        "config": {
+            "template": "sag-cloud-group-mapper-template",
+            "attribute.value": "SAG_CLOUD",
+            "syncMode": "LEGACY",
+            "attribute.name": "roles",
+            "group": "/Cloud-Tenant-Administrators/Account-Administrators"
+        }
+    },
+    {
+        "id": "9e5b3b61-b822-4788-84e3-3b40bbdfdddb",
+        "name": "2c511d89-51f1-4e87-89cd-7f54a25c4246",
+        "identityProviderAlias": "okta",
+        "identityProviderMapper": "SamlAssertionToUserAttribute",
+        "config": {
+            "template": "email",
+            "syncMode": "LEGACY",
+            "user.attribute": "email",
+            "attribute.name": "email"
+        }
+    },
+    {
+        "id": "56323d66-226e-4eb8-bcd6-0d76c9b15260",
+        "name": "9c59d9e1-6ba9-4195-b07c-4ece677dc6f6",
+        "identityProviderAlias": "okta",
+        "identityProviderMapper": "SamlAssertionToUserAttribute",
+        "config": {
+            "template": "firstName",
+            "syncMode": "LEGACY",
+            "user.attribute": "firstName",
+            "attribute.name": "firstName"
+        }
+    },
+    {
+        "id": "c757629e-1824-4831-a0e0-f45140c157f2",
+        "name": "0a703bf8-b657-4ce9-a54a-734aa68e50c9",
+        "identityProviderAlias": "okta",
+        "identityProviderMapper": "SamlAttributeToRoleMapper",
+        "config": {
+            "attribute.value": "SAG_CLOUD",
+            "syncMode": "LEGACY",
+            "role": "Account-Administrator",
+            "attribute.name": "roles"
+        }
+    },
+    {
+        "id": "5733eac4-a7e3-4e34-90fd-c70a6b57b243",
+        "name": "6b653471-a86b-40c3-9ce8-eb6fc4d9d43e",
+        "identityProviderAlias": "okta",
+        "identityProviderMapper": "SamlAssertionToUserAttribute",
+        "config": {
+            "template": "lastName",
+            "syncMode": "LEGACY",
+            "user.attribute": "lastName",
+            "attribute.name": "lastName"
+        }
+    }
+]
