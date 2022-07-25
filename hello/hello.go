@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"log"
-
 	"labkit.in/greetings"
 )
 
@@ -13,7 +12,7 @@ func main() {
 	// the log entry prefix and a flag to disable printing
 	// the time, source file, and line number.
 	log.SetPrefix("greetings: ")
-	log.SetFlags(0)
+	log.SetFlags(0)	
 
 	names := []string {"vidhya","arun","aathi","ayyanar","naji"}
 
