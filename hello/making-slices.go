@@ -7,6 +7,16 @@ import (
 func main() {
 	a := make([]int, 5)
 	printSlice("a", a)
+	b := make([]int, 0, 5)
+	printSlice("b",b)
+	c := b[:5]
+	printSlice("c",c)
+	d := c[4:5]
+	printSlice("d",d)
+
+
+
+
 }
 
 func printSlice(s string, x []int) {
