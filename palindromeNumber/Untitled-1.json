@@ -1,0 +1,122 @@
+{
+    "alias": "okta-02",
+    "displayName": "okta-02 SSO",
+    "internalId": "12619f28-5b25-473d-8d03-857cea83d681",
+    "providerId": "saml",
+    "enabled": true,
+    "trustEmail": true,
+    "storeToken": false,
+    "addReadTokenRoleOnCreate": false,
+    "authenticateByDefault": false,
+    "linkOnly": false,
+    "firstBrokerLoginFlowAlias": "extidmbrokerlogin",
+    "postBrokerLoginFlowAlias": null,
+    "config": {
+        "hideOnLoginPage": "false",
+        "validateSignature": "true",
+        "samlXmlKeyNameTranformer": "NONE",
+        "signingCertificate": "MIIDqDCCApCgAwIBAgIGAX0kwUvkMA0GCSqGSIb3DQEBCwUAMIGUMQswCQYDVQQGEwJVUzETMBEG A1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsGA1UECgwET2t0YTEU MBIGA1UECwwLU1NPUHJvdmlkZXIxFTATBgNVBAMMDGxhYmtpdHZpZGh5YTEcMBoGCSqGSIb3DQEJ ARYNaW5mb0Bva3RhLmNvbTAeFw0yMTExMTUxNzU4NDdaFw0zMTExMTUxNzU5NDdaMIGUMQswCQYD VQQGEwJVUzETMBEGA1UECAwKQ2FsaWZvcm5pYTEWMBQGA1UEBwwNU2FuIEZyYW5jaXNjbzENMAsG A1UECgwET2t0YTEUMBIGA1UECwwLU1NPUHJvdmlkZXIxFTATBgNVBAMMDGxhYmtpdHZpZGh5YTEc MBoGCSqGSIb3DQEJARYNaW5mb0Bva3RhLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoC ggEBALfnHPRc9QNMCsTiYTktxfJwcWTTErNapTMdsPDwrlDpGeg6IlHPnU0jSXrvtlpl/YiPzBmL 0Erd1Ac5a9kkEnq2VhPAgGZ2o9zkUwRshiDCriRGgH399MVLCp2snox2IaJwykSGp07AASXaTF45 PMeQW69vK6Z93VZysoqsikdj54nvx0ufHTmNpjNzv6LOrChpJizNbP4lvZTYnmcfm7IM4OVPMQtq OW36+8kBqzKD7OxGo/ZzZKuGBvi8QNs2WdACNpOMSFlmqxTJhSELjfWHB6dHci4QOcdrXyl9BiX2 TcGIG7MT4dBTvkF2Ta+R9aDCXcEGbbigXqhZl4USs1UCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEA rlTBwpcxXRD4G5SJNSFEDdJP60zj/JZuYlg/3+D7p/SxXjuHh4UO5miZYhe1JhMBO8n5aQD5R1Ai qoHWdLltD7USsagd+TttqQyMYZkJVbQP5kQS8yon4Y70rA2D1/cS1Z8Yo5UkH6H1o0IBXWe7jM+Z WyEcyKRSqgOiB7mJhofzt59Zeu6ZvECi7puEnaNM2FPkWklm3vD3/N8jcNdr1Kq7p4cu3HugfelU PFv1KWJDiaYt4fkQyRm+gikIuwsJQy8LXEy2BZfvHQCgz3Y6TZ7VAZDmb/YRkAFzdTaIMVAeUc4i 5JxD/VZKRCFOH0MNkj3cEjrLNvLGZioMvFHsCg==",
+        "postBindingLogout": "false",
+        "nameIDPolicyFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
+        "postBindingResponse": "true",
+        "backchannelSupported": "false",
+        "signatureAlgorithm": "RSA_SHA256",
+        "wantAssertionsEncrypted": "false",
+        "useJwksUrl": "true",
+        "wantAssertionsSigned": "true",
+        "postBindingAuthnRequest": "true",
+        "syncMode": "LEGACY",
+        "forceAuthn": "false",
+        "singleSignOnServiceUrl": "https://labkitvidhya.okta.com/app/labkitvidhya_vidhya121201_1/exk6vx7txHzc5ECXR696/sso/saml",
+        "wantAuthnRequestsSigned": "false",
+        "addExtensionsElementWithKeyInfo": "false"
+    },
+    "mappers": [
+        {
+            "id": "d4ea0ca0-48bb-45eb-8bcf-e87450fafa7d",
+            "name": "082e7576-03e1-467a-8d90-a601afc52169",
+            "identityProviderAlias": "okta-02",
+            "identityProviderMapper": "SamlAssertionToUserAttribute",
+            "config": {
+                "template": "email",
+                "syncMode": "LEGACY",
+                "user.attribute": "email",
+                "attribute.name": "email"
+            }
+        },
+        {
+            "id": "fa1dc76c-83f5-42c5-a38e-6c2d6ae0d5e8",
+            "name": "897f08fe-a5bc-4123-92bd-ac2436704bcb",
+            "identityProviderAlias": "okta-02",
+            "identityProviderMapper": "SamlAttributeToGroupMapper",
+            "config": {
+                "template": "sag-cloud-group-mapper-template",
+                "attribute.value": "SAG_CLOUD",
+                "syncMode": "LEGACY",
+                "attribute.name": "roles",
+                "group": "/Cloud-Tenant-Administrators/Account-Administrators"
+            }
+        },
+        {
+            "id": "b460e1b1-c6b0-46d1-a9e0-35805ae2b699",
+            "name": "4c75478b-a4b1-4acc-afa9-a971f5466077",
+            "identityProviderAlias": "okta-02",
+            "identityProviderMapper": "SamlAttributeToGroupMapper",
+            "config": {
+                "template": "sag-cloud-group-mapper-template",
+                "attribute.value": "SAG_CLOUD",
+                "syncMode": "LEGACY",
+                "attribute.name": "roles",
+                "group": "/Cloud-Tenant-Administrators"
+            }
+        },
+        {
+            "id": "b0afe398-f8c8-4e29-9ec0-8814b17cf9ac",
+            "name": "66e4d42e-c672-4bf2-a52d-3913d19c80de",
+            "identityProviderAlias": "okta-02",
+            "identityProviderMapper": "SamlAssertionToUserAttribute",
+            "config": {
+                "template": "firstName",
+                "syncMode": "LEGACY",
+                "user.attribute": "firstName",
+                "attribute.name": "firstName"
+            }
+        },
+        {
+            "id": "7055c4fc-9c6a-4176-8dbd-5e542de8ab6b",
+            "name": "5d5bc1a1-463a-4496-ba8c-fddf23d67244",
+            "identityProviderAlias": "okta-02",
+            "identityProviderMapper": "SamlAssertionToUserAttribute",
+            "config": {
+                "template": "lastName",
+                "syncMode": "LEGACY",
+                "user.attribute": "lastName",
+                "attribute.name": "lastName"
+            }
+        },
+        {
+            "id": "09e625de-a7fd-4a87-b30f-651d5eddd28c",
+            "name": "ec728af9-96a4-4497-b3a7-53afb58ae1db",
+            "identityProviderAlias": "okta-02",
+            "identityProviderMapper": "SamlAttributeToRoleMapper",
+            "config": {
+                "attribute.value": "SAG_CLOUD",
+                "syncMode": "LEGACY",
+                "role": "Cloud-Tenant-Administrator",
+                "attribute.name": "roles"
+            }
+        },
+        {
+            "id": "5f50bad4-dceb-4918-bbb4-f678c759ee23",
+            "name": "8e2a72dc-b0c7-4af2-83d6-31672413eca4",
+            "identityProviderAlias": "okta-02",
+            "identityProviderMapper": "SamlAttributeToRoleMapper",
+            "config": {
+                "attribute.value": "SAG_CLOUD",
+                "syncMode": "LEGACY",
+                "role": "Account-Administrator",
+                "attribute.name": "roles"
+            }
+        }
+    ]
+}
